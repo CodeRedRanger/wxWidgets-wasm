@@ -174,16 +174,16 @@ void wxSleep(int nSecs)
 }
 
 
-//void wxMicroSleep(unsigned long microseconds)
-//{
-//#if defined(HAVE_NANOSLEEP)
-//    timespec tmReq;
-//    tmReq.tv_sec = (time_t)(microseconds / 1000000);
-//    tmReq.tv_nsec = (microseconds % 1000000) * 1000;
+void wxMicroSleep(unsigned long microseconds)
+{
+#if defined(HAVE_NANOSLEEP)
+    timespec tmReq;
+    tmReq.tv_sec = (time_t)(microseconds / 1000000);
+    tmReq.tv_nsec = (microseconds % 1000000) * 1000;
 
     // we're not interested in remaining time nor in return value
-//    (void)nanosleep(&tmReq, NULL);
-//#elif defined(HAVE_USLEEP)
+    (void)nanosleep(&tmReq, NULL);
+#elif defined(HAVE_USLEEP)
     // uncomment this if you feel brave or if you are sure that your version
     // of Solaris has a safe usleep() function but please notice that usleep()
     // is known to lead to crashes in MT programs in Solaris 2.[67] and is not
@@ -192,11 +192,11 @@ void wxSleep(int nSecs)
     //    #error "usleep() cannot be used in MT programs under Solaris."
     //#endif // Sun
 
-//    usleep(microseconds);
-//#else // !sleep function
+    usleep(microseconds);
+#else // !sleep function
     //#error "usleep() or nanosleep() function required for wxMicroSleep"
-//#endif // sleep function
-//}
+#endif // sleep function
+}
 
 void wxMilliSleep(unsigned long milliseconds)
 {
