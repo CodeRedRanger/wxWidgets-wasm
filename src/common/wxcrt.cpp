@@ -224,7 +224,7 @@ int /* not wint_t */ wxCRT_FputcW(wchar_t wc, FILE *stream)
 #ifdef wxNEED_WPRINTF
 
 // TODO: implement the scanf() functions
-static int vwscanf(const wchar_t *format, va_list argptr)
+/*static int vwscanf(const wchar_t *format, va_list argptr)
 {
     wxFAIL_MSG( wxT("TODO") );
 
@@ -236,11 +236,11 @@ static int vfwscanf(FILE *stream, const wchar_t *format, va_list argptr)
     wxFAIL_MSG( wxT("TODO") );
 
     return -1;
-}
+}*/
 
 #define vswprintf wxCRT_VsnprintfW
 
-static int vfwprintf(FILE *stream, const wchar_t *format, va_list argptr)
+/*static int vfwprintf(FILE *stream, const wchar_t *format, va_list argptr)
 {
     wxString s;
     int rc = s.PrintfV(format, argptr);
@@ -258,7 +258,7 @@ static int vfwprintf(FILE *stream, const wchar_t *format, va_list argptr)
 static int vwprintf(const wchar_t *format, va_list argptr)
 {
     return wxCRT_VfprintfW(stdout, format, argptr);
-}
+}*/
 
 #endif // wxNEED_WPRINTF
 
