@@ -31278,9 +31278,9 @@ $as_echo "$ac_res" >&6; }
 _ACEOF
 
 
-    else
-      :
-      as_fn_error $? "wxMicroSleep() can't be implemented" "$LINENO" 5
+   # else
+   #   :
+   #   as_fn_error $? "wxMicroSleep() can't be implemented" "$LINENO" 5
 
     fi
   done
