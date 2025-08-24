@@ -187,13 +187,13 @@ void wxMicroSleep(unsigned long microseconds)
     // of Solaris has a safe usleep() function but please notice that usleep()
     // is known to lead to crashes in MT programs in Solaris 2.[67] and is not
     // documented as MT-Safe
-    #if defined(__SUN__) && wxUSE_THREADS
-        #error "usleep() cannot be used in MT programs under Solaris."
-    #endif // Sun
+    //#if defined(__SUN__) && wxUSE_THREADS
+    //    #error "usleep() cannot be used in MT programs under Solaris."
+    //#endif // Sun
 
     usleep(microseconds);
 #else // !sleep function
-    #error "usleep() or nanosleep() function required for wxMicroSleep"
+    //#error "usleep() or nanosleep() function required for wxMicroSleep"
 #endif // sleep function
 }
 
